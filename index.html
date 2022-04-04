@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gmail_clone</title>
+
+    <!-- ---- google font -- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Cabin:ital,wght@0,400;1,400;1,500;1,600&family=Lobster&family=Montserrat:ital,wght@0,300;1,200;1,300&family=Oswald:wght@300;400;500&family=Poppins:ital,wght@0,100;0,200;0,300;1,200;1,300&family=Roboto+Condensed:ital,wght@0,400;1,300;1,400&family=Roboto:ital,wght@0,100;0,300;1,300;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome cdn -->
+    <script
+      src="https://kit.fontawesome.com/de028bc26c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="./dist/output.css" />
+  </head>
+  <body>
+    <!-- preloader -->
+    <section class="preloader_custom bg-white top-0 z-50 fixed h-screen w-full">
+      <div class="container flex items-center justify-center h-screen">
+        <div class="wraper mx-auto flex items-center justify-center flex-col">
+          <img
+            src="./image/Gmail-Logo.wine.png"
+            alt=""
+            class="block p-10 w-1/3"
+          />
+          <img src="./image/Pinwheel.gif" alt="" />
+        </div>
+      </div>
+    </section>
+    <!-- preloader end -->
+    <header
+      class="border-b-[1px] border-gray-200 py-2 bg-white top-0 fixed left-0 right-0 z-30"
+    >
+      <div class="container flex items-center justify-between">
+        <!-- left icon logo gmail -->
+        <div class="h_left_logo flex items-center space-x-4">
+          <a href="#" class="text-xl bar_click"
+            ><i class="fas fa-bars icon_hover icon_change"></i
+          ></a>
+          <img src="./image/logo_gmail_lockup_default_1x_r2 (1).png" alt="" />
+        </div>
+
+        <!-- middle search bar  -->
+        <div
+          class="h_search_input items-center justify-between min-w-[45%] relative hidden md:inline-flex"
+        >
+          <input
+            type="search"
+            placeholder="search"
+            class="border border-gray-300 bg-white focus:right-0 focus:outline-none w-full mx-auto px-10 rounded-sm b_shadow"
+          />
+
+          <i class="fas fa-search icon_hover absolute left-0"></i>
+          <i class="fas fa-sort-alpha-down-alt icon_hover right-0 absolute"></i>
+        </div>
+
+        <!-- rigth icon with image -->
+        <div class="h_right_icon flex items-center justify-between space-x-4">
+          <i class="far fa-question-circle icon_hover"></i>
+          <i class="fas fa-cog text-xl icon_hover"></i>
+          <i class="fas fa-th text-xl icon_hover"></i>
+          <img
+            src="./image/all1.jpg"
+            alt=""
+            class="w-8 h-8 rounded-full right-1"
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- side bar left -->
+    <aside
+      class="aside_bar h-[90%] w-[287px] fixed top-14 pt-[10px] overflow-auto -ml-[60%] duration-300 bg-white z-40 pb-5"
+    >
+      <div class="container box-border px-4 divide-y-2 space-y-3">
+        <!-- plus icon -->
+        <div
+          class="b_shadow rounded-full px-4 py-2 mt-2 flex items-center space-x-3"
+        >
+          <i class="fas fa-plus text-2xl text-teal-500"></i>
+          <span class="inline-block">Compose</span>
+        </div>
+
+        <!-- icon list with text -->
+        <div>
+          <ul class="space-y-1">
+            <li class="bg-red-200 rounded-full py-[3px] px-2 mt-2">
+              <a href="#" class="flex item-center justify-between space-x-4">
+                <div class="flex items-center space-x-4">
+                  <i class="fas fa-envelope text-xl text-teal-500"></i>
+                  <span class="inline-block">Inbox</span>
+                </div>
+                <span>12</span>
+              </a>
+            </li>
+
+            <li
+              class="rounded-full py-[3px] px-2 hover:bg-[#f6b9cebb] duration-200"
+            >
+              <a href="#" class="flex item-center space-x-4 justify-between">
+                <div class="flex items-center space-x-4">
+                  <i class="fas fa-star text-xl text-[#182C61]"></i>
+                  <span class="inline-block">Starred</span>
+                </div>
+                <span>05</span>
+              </a>
+            </li>
+
+            <li
+              class="rounded-full py-[3px] px-2 hover:bg-[#f6b9cebb] duration-200"
+            >
+              <a href="#" class="flex item-center space-x-4 justify-between">
+                <div class="flex item-center space-x-4">
+                  <i class="fas fa-clock text-xl text-[#25CCF7]"></i>
+                  <span class="inline-block">Snoozed</span>
+                </div>
+                <span>10</span>
+              </a>
+            </li>
+
+            <li
+              class="rounded-full py-[3px] px-2 hover:bg-[#f6b9cebb] duration-200"
+            >
+              <a href="#" class="flex item-center space-x-4 justify-between">
+                <div class="flex item-center space-x-4">
+                  <i class="fas fa-paper-plane text-xl text-teal-500"></i>
+                  <span class="inline-block">Sent</span>
+                </div>
+                <span>20</span>
+              </a>
+            </li>
+
+            <li
+              class="rounded-full py-[3px] px-2 hover:bg-[#f6b9cebb] duration-200"
+            >
+              <a href="#" class="flex item-center space-x-4 justify-between">
+                <div class="flex item-center space-x-4">
+                  <i class="fas fa-envelope-open text-xl text-[#B33771]"></i>
+                  <span class="inline-block">Snoozed</span>
+                </div>
+                <span>24</span>
+              </a>
+            </li>
+
+            <li
+              class="rounded-full py-[3px] px-2 hover:bg-[#f6b9cebb] duration-200"
+            >
+              <a href="#" class="flex items-center space-x-4">
+                <i class="fas fa-angle-down"></i>
+                <span class="inline-block">more</span>
+                <span></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- meething  -->
+        <div>
+          <h1 class="">Meet</h1>
+          <ul>
+            <li
+              class="rounded-full py-[3px] px-2 hover:bg-[#f6b9cebb] duration-200"
+            >
+              <a href="#" class="flex item-center space-x-4">
+                <i class="fas fa-video text-xl text-[#3B3B98]"></i>
+
+                <span class="inline-block">New meeting...</span>
+              </a>
+            </li>
+            <li
+              class="rounded-full py-[3px] px-2 hover:bg-[#f6b9cebb] duration-200"
+            >
+              <a href="#" class="flex item-center space-x-4">
+                <i class="fas fa-keyboard text-xl text-[]"></i>
+                <span class="inline-block">Join a meeting</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- meething end -->
+
+        <!-- hangout -->
+        <div class="space-y-2">
+          <h1>Hangout</h1>
+          <div class="flex items-center space-x-2">
+            <img
+              src="/image/all1.jpg"
+              alt=""
+              class="w-8 h-8 rounded-full right-1 flex shrink-0"
+            />
+            <span>mohammed nazim</span>
+          </div>
+        </div>
+
+        <!-- for mobile device -->
+        <div
+          class="h_search_input items-center justify-between min-w-[40%] relative flex md:hidden"
+        >
+          <input
+            type="search"
+            placeholder="search"
+            class="border border-gray-300 bg-gray-300 focus:right-0 focus:outline-none w-full mx-auto px-10 rounded-sm b_shadow"
+          />
+
+          <i class="fas fa-search icon_hover absolute left-0 top-1"></i>
+          <i
+            class="fas fa-sort-alpha-down-alt icon_hover right-0 top-1 absolute"
+          ></i>
+        </div>
+        <!-- for mobile device end -->
+      </div>
+    </aside>
+    <!-- side bar left end-->
+
+    <!-- header filter fixed -->
+    <section
+      class="border-gray-200 border-b-[1px] bg-gray-100 py-2 fixed inset-x-0 px-2 z-30"
+    >
+      <div class="container flex items-center justify-between">
+        <div class="check_left flex items-center space-x-5">
+          <input type="checkbox" class="mark_all_checkbox text-xl" />
+          <i class="fas fa-redo icon_hover"></i>
+        </div>
+
+        <!-- middle multi icon -->
+        <div class="space-x-5 hidden show_icon">
+          <ul class="flex items-center space-x-4">
+            <li class="icon_hover">
+              <a href="#" class="text-teal-500"
+                ><i class="fas fa-envelope-open"></i
+              ></a>
+            </li>
+            <li class="icon_hover">
+              <a href="#"><i class="fas fa-exclamation-circle"></i></a>
+            </li>
+            <li class="icon_hover">
+              <a href="#" class="text-red-400"><i class="fas fa-trash"></i></a>
+            </li>
+            <li class="icon_hover">
+              <a href="#"><i class="fas fa-clock"></i></a>
+            </li>
+            <li class="icon_hover">
+              <a href="#" class="text-green-400"
+                ><i class="fas fa-check-circle"></i
+              ></a>
+            </li>
+            <li class="icon_hover">
+              <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+            </li>
+            <li class="icon_hover">
+              <a href="#" class="text-indigo-600"
+                ><i class="fas fa-ellipsis-v"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <!-- middle multi icon end -->
+
+        <div class="count_right flex items-center space-x-4">
+          <span>1-50 of 300</span>
+
+          <div class="arrow_icon flex items-center justify-between space-x-4">
+            <i class="fas fa-angle-left"></i>
+            <i class="fas fa-angle-right"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- header filter fixed end -->
+
+    <main class="mt-14 pt-14">
+      <div class="container flex justify-between">
+        <!-- email boxy -->
+        <div class="email_body flex flex-grow">
+          <ul class="h-[90%] px-2">
+            <div
+              class="flex items-center justify-between md:justify-evenly px-20 py-2 border-b-[1px] border-teal-400 mb-3 space-x-4"
+            >
+              <div class="single flex items-center space-x-4">
+                <i class="fas fa-image text-2xl text-teal-400"></i>
+                <span class="font-semibold">Primary</span>
+              </div>
+              <div class="single flex items-center space-x-4">
+                <i class="fas fa-address-card text-2xl text-teal-400"></i>
+                <span class="font-semibold">Contact</span>
+              </div>
+
+              <div class="single flex items-center space-x-4">
+                <i class="fas fa-paper-plane text-2xl text-teal-400"></i>
+                <span class="font-semibold">Promotions</span>
+              </div>
+            </div>
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold"
+                  >Stack learner school</span
+                >
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod facere officiis hic, maiores
+                quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 bottom-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold">Learn with sumit</span>
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold">Anisul islam</span>
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold"
+                  >Thapa technical India</span
+                >
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold">JS coder BD</span>
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold"
+                  >Stack learner school</span
+                >
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold">Web campas En</span>
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold">Canva primiun</span>
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold"
+                  >Stack learner school</span
+                >
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold"
+                  >Stack learner school</span
+                >
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold"
+                  >Stack learner school</span
+                >
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold"
+                  >Stack learner school</span
+                >
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold"
+                  >Stack learner school</span
+                >
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold">Anisul islam</span>
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold"
+                  >Thapa technical India</span
+                >
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold">JS coder BD</span>
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold"
+                  >Stack learner school</span
+                >
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold">Web campas En</span>
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+
+            <li
+              class="flex items-center flex-grow hover:bg-gray-200 duration-200 rounded-sm relative group py-1"
+            >
+              <div class="min-w-[200px]">
+                <input type="checkbox" class="" />
+                <span class="inline-block font-semibold">Canva primiun</span>
+              </div>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut
+                facere officiis hic, maiores quod
+              </p>
+
+              <!-- hidden icon -->
+              <div
+                class="item-center justify-center absolute top-0 py-2 right-0 space-x-5 bg-white hidden group-hover:inline-flex duration-200"
+              >
+                <a href="#" class="text-red-400"
+                  ><i class="fas fa-trash"></i
+                ></a>
+                <a href="#" class="text-green-400"
+                  ><i class="fas fa-check-circle"></i
+                ></a>
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+              </div>
+              <!-- hidden icon end -->
+            </li>
+          </ul>
+        </div>
+
+        <!-- right side bar contact icon -->
+        <div
+          class="contact_side_right hidden md:inline-flex h-screen fixed w-[110px] right-0 px-2 top-16 bg-white border-l-[1px] border-gray-200"
+        >
+          <ul class="space-y-5">
+            <li class="icon_hover">
+              <a href="#" class="text-[]"
+                ><i class="fas fa-calendar-alt"></i
+              ></a>
+            </li>
+            <li class="icon_hover">
+              <a href="#" class="text-orange-400"
+                ><i class="fas fa-lightbulb"></i
+              ></a>
+            </li>
+            <li class="icon_hover">
+              <a href="#" class="text-[#25CCF7]"
+                ><i class="fas fa-check-circle"></i
+              ></a>
+            </li>
+            <li class="icon_hover">
+              <a href="#" class="text-[#1B9CFC]"
+                ><i class="fas fa-address-book"></i
+              ></a>
+            </li>
+            <li class="icon_hover">
+              <a href="#" class="text-[#D6A2E8]"><i class="fas fa-plus"></i></a>
+            </li>
+            <li class="icon_hover">
+              <a href="#" class="text-[#FC427B]"
+                ><i class="fas fa-minus"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <script src="./dist/index.js"></script>
+  </body>
+</html>
